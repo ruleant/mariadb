@@ -55,11 +55,6 @@ MACRO(CHECK_SYSTEMD)
       IF(HAVE_SYSTEMD AND HAVE_SYSTEMD_SD_DAEMON_H AND HAVE_SYSTEMD_SD_LISTEN_FDS
          AND HAVE_SYSTEMD_SD_NOTIFY AND HAVE_SYSTEMD_SD_NOTIFYF)
         ADD_DEFINITIONS(-DHAVE_SYSTEMD)
-        # should be from pkg-config --variable=systemdsystemconfdir systemd
-        # Missing CMake macro: http://public.kitware.com/Bug/view.php?id=15634
-        SET(SYSTEMD_SYSTEM_CONFDIR /etc/systemd/system)
-        # should be from pkg-config --variable=systemdsystemunitdir systemd
-        SET(SYSTEMD_SYSTEM_UNITDIR /usr/lib/systemd/system/)
         SET(SYSTEMD_SCRIPTS mariadb-service-convert)
         SET(SYSTEMD_DEB_FILES usr/bin/mariadb-service-convert)
         MESSAGE(STATUS "Systemd features enabled")
