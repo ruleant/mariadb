@@ -57,6 +57,8 @@ MACRO(CHECK_SYSTEMD)
         ADD_DEFINITIONS(-DHAVE_SYSTEMD)
         SET(SYSTEMD_SCRIPTS mariadb-service-convert)
         SET(SYSTEMD_DEB_FILES "usr/bin/mariadb-service-convert
+                               ${INSTALL_SYSTEMD_UNITDIR}/mariadb.service
+                               ${INSTALL_SYSTEMD_UNITDIR}/mariadb@.service
                                ${INSTALL_SYSTEMD_UNITDIR}/mariadb@bootstrap.service.d/wsrep-new-cluster.conf")
         MESSAGE(STATUS "Systemd features enabled")
       ELSE()
