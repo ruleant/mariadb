@@ -43,10 +43,6 @@ script:
   - env DEB_BUILD_OPTIONS="parallel=4" debian/autobake-deb.sh;
 
 notifications:
-  irc:
-    channels:
-      - "chat.freenode.net#maria"
-    on_success: never # [always|never|change]
-    on_failure: never
-    template:
-      - "%{repository}/%{branch} (%{commit} - %{author}): %{build_url}: %{message}"
+  webhooks:
+    # parse Travis CI log and send result to Keen.io, using Builtime Trend Service
+    - https://buildtimetrend.herokuapp.com/travis
